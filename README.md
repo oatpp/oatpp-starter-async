@@ -2,6 +2,13 @@
 oatpp Async-API Starter template project.
 config=(oatpp-coroutines plus non-blocking-IO)
 
+## Before you start
+
+Read:
+- [oatpp Async](https://oatpp.io/docs/async)
+- [oatpp Coroutines](https://oatpp.io/docs/oatpp-coroutines)
+- [ApiController](https://oatpp.io/docs/component/api-controller) - ```ENDPOINT_ASYNC``` part.
+
 ## Build and run
 
 1) Git-Clone examples repo:
