@@ -1,4 +1,4 @@
-# oatpp-starter-async
+# oatpp-starter-async [![Build Status](https://dev.azure.com/lganzzzo/lganzzzo/_apis/build/status/oatpp.oatpp-starter-async?branchName=master)](https://dev.azure.com/lganzzzo/lganzzzo/_build/latest?definitionId=11?branchName=master)
 oatpp Async-API Starter template project.
 config=(oatpp-coroutines plus non-blocking-IO)
 
