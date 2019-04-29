@@ -51,7 +51,7 @@ public:
     Action act() override {
       auto dto = MyDto::createShared();
       dto->statusCode = 200;
-      dto->message = "Hello World Async!";
+      dto->message = "Hello World Async! version=" OATPP_VERSION;
       return _return(controller->createDtoResponse(Status::CODE_200, dto));
     }
     
