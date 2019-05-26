@@ -10,8 +10,7 @@ include_directories(src)
 
 add_library(${project_name}-lib
         src/AppComponent.hpp
-        src/Logger.hpp
-        src/Logger.cpp
+        src/controller/MyController.cpp
         src/controller/MyController.hpp
         src/dto/MyDto.hpp
 )
