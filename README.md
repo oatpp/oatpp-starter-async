@@ -1,38 +1,38 @@
 # oatpp-starter-async [![Build Status](https://dev.azure.com/lganzzzo/lganzzzo/_apis/build/status/oatpp.oatpp-starter-async?branchName=master)](https://dev.azure.com/lganzzzo/lganzzzo/_build?definitionId=11&branchName=master)
 
-oatpp Async-API starter project.
+Starter project of oat++ (AKA oatpp) application. Based on oatpp Async API.
 
-More about oat++:
-- Website: [https://oatpp.io](https://oatpp.io)
-- Docs: [https://oatpp.io/docs/start](https://oatpp.io/docs/start)
-- Oat++ Repo: [https://github.com/oatpp/oatpp](https://github.com/oatpp/oatpp)
+See more:
+
+- [Oat++ Website](https://oatpp.io/)
+- [Oat++ Github Repository](https://github.com/oatpp/oatpp)
+- [Get Started](https://oatpp.io/docs/start)
 
 ## Before you start
 
 Read:
-- [oatpp Async](https://oatpp.io/docs/async)
-- [oatpp Coroutines](https://oatpp.io/docs/oatpp-coroutines)
-- [ApiController](https://oatpp.io/docs/component/api-controller) - ```ENDPOINT_ASYNC``` part.
+
+- [Simple API vs Async API](https://oatpp.io/docs/simple-vs-async/)
+- [Async](https://oatpp.io/docs/async/)
+- [Oatpp-Coroutines](https://oatpp.io/docs/oatpp-coroutines/)
+- [ENDPOINT_ASYNC](https://oatpp.io/docs/components/api-controller/#endpoint-async-specifics)
 
 ## Overview
 
 ### Project layout
 
 ```
-- CMakeLists.txt                        // projects CMakeLists.txt
-- src/                                  // source folder
-- test/                                 // test folder
-- utility/install-oatpp-modules.sh      // utility script to install required oatpp-modules.
-```
-```
-- src/
-    |
-    |- controller/              // Folder containing UserController where all endpoints are declared
-    |- dto/                     // DTOs are declared here
-    |- AppComponent.hpp         // Service config
-    |- Logger.hpp               // Application Logger
-    |- App.cpp                  // main() is here
-    
+|- CMakeLists.txt                        // projects CMakeLists.txt
+|- src/
+|    |
+|    |- controller/                      // Folder containing UserController where all endpoints are declared
+|    |- dto/                             // DTOs are declared here
+|    |- AppComponent.hpp                 // Service config
+|    |- Logger.hpp                       // Application Logger
+|    |- App.cpp                          // main() is here
+|    
+|- test/                                 // test folder
+|- utility/install-oatpp-modules.sh      // utility script to install required oatpp-modules.
 ```
 
 ---
@@ -50,7 +50,7 @@ script to install required oatpp modules.
 $ mkdir build && cd build
 $ cmake ..
 $ make 
-$ ./my-project-exe  # - run application.
+$ ./my-project-exe                  # - run application.
 
 ```
 
