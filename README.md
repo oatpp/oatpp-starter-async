@@ -39,13 +39,12 @@ Read:
 
 ### Build and Run
 
+#### Using CMake
+
 **Requires** 
 
 - `oatpp` module installed. You may run `utility/install-oatpp-modules.sh` 
 script to install required oatpp modules.
-
-
-#### Using CMake
 
 ```
 $ mkdir build && cd build
