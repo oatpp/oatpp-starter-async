@@ -28,7 +28,6 @@ Read:
 |    |- controller/                      // Folder containing UserController where all endpoints are declared
 |    |- dto/                             // DTOs are declared here
 |    |- AppComponent.hpp                 // Service config
-|    |- Logger.hpp                       // Application Logger
 |    |- App.cpp                          // main() is here
 |    
 |- test/                                 // test folder
