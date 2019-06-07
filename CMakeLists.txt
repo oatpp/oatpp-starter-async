@@ -12,7 +12,7 @@ add_library(${project_name}-lib
         src/AppComponent.hpp
         src/controller/MyController.cpp
         src/controller/MyController.hpp
-        src/dto/MyDto.hpp
+        src/dto/DTOs.hpp
 )
 
 ## link libs
@@ -34,6 +34,10 @@ add_dependencies(${project_name}-exe ${project_name}-lib)
 
 add_executable(${project_name}-test
         test/tests.cpp
+        test/app/TestComponent.hpp
+        test/app/MyApiTestClient.hpp
+        test/MyControllerTest.cpp
+        test/MyControllerTest.hpp
 )
 target_link_libraries(${project_name}-test ${project_name}-lib)
 add_dependencies(${project_name}-test ${project_name}-lib)

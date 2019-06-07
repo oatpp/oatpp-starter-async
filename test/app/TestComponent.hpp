@@ -1,28 +1,49 @@
 //
-//  AppComponent.hpp
-//  oatpp-web-starter
-//
-//  Created by Leonid on 3/2/18.
-//  Copyright © 2018 lganzzzo. All rights reserved.
+// Created by Leonid  on 2019-06-07.
 //
 
-#ifndef AppComponent_hpp
-#define AppComponent_hpp
+#ifndef TestComponent_htpp
+#define TestComponent_htpp
 
 #include "oatpp/web/server/AsyncHttpConnectionHandler.hpp"
-#include "oatpp/web/server/HttpRouter.hpp"
-#include "oatpp/network/server/SimpleTCPConnectionProvider.hpp"
+
+#include "oatpp/network/virtual_/client/ConnectionProvider.hpp"
+#include "oatpp/network/virtual_/server/ConnectionProvider.hpp"
+#include "oatpp/network/virtual_/Interface.hpp"
 
 #include "oatpp/parser/json/mapping/ObjectMapper.hpp"
 
+#include "oatpp/core/async/Executor.hpp"
 #include "oatpp/core/macro/component.hpp"
 
 /**
- *  Class which creates and holds Application components and registers components in oatpp::base::Environment
- *  Order of components initialization is from top to bottom
+ * Test Components config
  */
-class AppComponent {
+class TestComponent {
 public:
+
+  /**
+   * Create oatpp virtual network interface for test networking
+   */
+  OATPP_CREATE_COMPONENT(std::shared_ptr<oatpp::network::virtual_::Interface>, virtualInterface)([] {
+    return oatpp::network::virtual_::Interface::createShared("virtualhost");
+  }());
+
+  /**
+   * Create server ConnectionProvider of oatpp virtual connections for test
+   */
+  OATPP_CREATE_COMPONENT(std::shared_ptr<oatpp::network::ServerConnectionProvider>, serverConnectionProvider)([] {
+    OATPP_COMPONENT(std::shared_ptr<oatpp::network::virtual_::Interface>, interface);
+    return oatpp::network::virtual_::server::ConnectionProvider::createShared(interface);
+  }());
+
+  /**
+   * Create client ConnectionProvider of oatpp virtual connections for test
+   */
+  OATPP_CREATE_COMPONENT(std::shared_ptr<oatpp::network::ClientConnectionProvider>, clientConnectionProvider)([] {
+    OATPP_COMPONENT(std::shared_ptr<oatpp::network::virtual_::Interface>, interface);
+    return oatpp::network::virtual_::client::ConnectionProvider::createShared(interface);
+  }());
 
   /**
    * Create Async Executor
@@ -34,21 +55,14 @@ public:
       1 /* Timer threads */
     );
   }());
-  
-  /**
-   *  Create ConnectionProvider component which listens on the port
-   */
-  OATPP_CREATE_COMPONENT(std::shared_ptr<oatpp::network::ServerConnectionProvider>, serverConnectionProvider)([] {
-    return oatpp::network::server::SimpleTCPConnectionProvider::createShared(8000);
-  }());
-  
+
   /**
    *  Create Router component
    */
   OATPP_CREATE_COMPONENT(std::shared_ptr<oatpp::web::server::HttpRouter>, httpRouter)([] {
     return oatpp::web::server::HttpRouter::createShared();
   }());
-  
+
   /**
    *  Create ConnectionHandler component which uses Router component to route requests
    */
@@ -57,7 +71,7 @@ public:
     OATPP_COMPONENT(std::shared_ptr<oatpp::async::Executor>, executor); // get Async executor component
     return oatpp::web::server::AsyncHttpConnectionHandler::createShared(router, executor);
   }());
-  
+
   /**
    *  Create ObjectMapper component to serialize/deserialize DTOs in Contoller's API
    */
@@ -67,4 +81,5 @@ public:
 
 };
 
-#endif /* AppComponent_hpp */
+
+#endif // TestComponent_htpp

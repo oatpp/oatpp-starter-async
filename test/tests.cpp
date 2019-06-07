@@ -1,24 +1,10 @@
 
-#include "oatpp-test/UnitTest.hpp"
+#include "MyControllerTest.hpp"
+
 #include <iostream>
 
-namespace {
-
-class Test : public oatpp::test::UnitTest {
-public:
-  Test() : oatpp::test::UnitTest("[MyTest]")
-  {}
-
-  void onRun() override {
-    OATPP_LOGD(TAG, "Hello Test");
-    // TODO write correct  tests
-  }
-};
-
 void runTests() {
-  OATPP_RUN_TEST(Test);
-}
-
+  OATPP_RUN_TEST(MyControllerTest);
 }
 
 int main() {
