@@ -8,6 +8,17 @@ See more:
 - [Oat++ Github Repository](https://github.com/oatpp/oatpp)
 - [Get Started](https://oatpp.io/docs/start)
 
+## Note
+
+Async API suits best for services dedicated to a single type of tasks that run at high concurrency levels.  
+Example:
+
+- Simultanious download of multiple files.
+- Streaming to large number of clients (1K or more).
+- Chats.
+
+For all other purposes use [Simple API](https://github.com/oatpp/oatpp-starter).
+
 ## Before you start
 
 Read:
