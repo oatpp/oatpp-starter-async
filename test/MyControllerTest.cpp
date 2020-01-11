@@ -60,6 +60,8 @@ void MyControllerTest::onRun() {
   OATPP_COMPONENT(std::shared_ptr<oatpp::async::Executor>, executor);
   executor->waitTasksFinished();
 
+  /* stop the executor */
+  executor->stop();
   /* You must join or detach Executor threads */
   executor->join();
 
